@@ -1,0 +1,30 @@
+{
+  "name": "test-task",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test:debug": "npx playwright test tests/cPanel-store.test.ts --headed",
+    "test": "npx playwright test --workers=3",
+    "lint": "eslint tests/*.ts",
+    "lint:quiet": "eslint --quiet --ext .ts tests/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anabn/test-task.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anabn/test-task/issues"
+  },
+  "homepage": "https://github.com/anabn/test-task#readme",
+  "devDependencies": {
+    "@playwright/test": "1.44.0",
+    "@types/node": "20.12.12",
+    "@typescript-eslint/eslint-plugin": "7.10.0",
+    "@typescript-eslint/parser": "7.10.0",
+    "eslint": "8.57.0"
+  }
+}
