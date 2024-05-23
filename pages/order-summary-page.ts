@@ -16,10 +16,12 @@ export class OrderSummaryPage extends BaseClass {
 
     async continueButtonIsDisable() {
         await this.continueButton.isDisabled();
+        expect(this.continueButton).toBeDisabled();
     }
 
     async continueButtonIsEnabled() {
         await this.continueButton.isEnabled();
+        expect(this.continueButton).toBeEnabled();
     }
 
     async clickOnCheckout() {
