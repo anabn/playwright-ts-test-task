@@ -1,0 +1,88 @@
+root: true
+env: 
+  jest: true
+parser: '@typescript-eslint/parser'
+plugins:
+  - '@typescript-eslint'
+extends:
+  - 'eslint:recommended'
+  - 'plugin:@typescript-eslint/recommended'
+parserOptions:
+  project: './tsconfig.json'
+rules:
+  quotes:
+    - error
+    - single
+  semi:
+    - error
+    - always
+  max-len:
+    ["error", { code: 100, ignoreStrings: true, ignoreTemplateLiterals: true }]
+  camelcase: error
+  "@typescript-eslint/ban-ts-comment": 
+    ["error", { ts-ignore: 'allow-with-description', minimumDescriptionLength: 3 }]
+  no-plusplus: error
+  prefer-const: error
+  eqeqeq: error
+  no-restricted-syntax: error
+  guard-for-in: error
+  no-bitwise: error
+  no-else-return: error
+  eol-last: error
+  object-curly-spacing:
+    - error
+    - always
+  comma-spacing: error
+  no-var: error
+  no-void: 
+    - error
+    - allowAsStatement: true
+  no-trailing-spaces: error
+  prefer-template: error
+  object-shorthand: error
+  no-multi-spaces: error
+  space-infix-ops: error
+  arrow-spacing: error
+  object-property-newline: error
+  arrow-parens: error
+  func-call-spacing: error
+  keyword-spacing: error
+  brace-style: error
+  space-before-blocks: error
+  space-unary-ops: error
+  no-unneeded-ternary: error
+  space-in-parens: error
+  no-lonely-if: error
+  default-case: error
+  radix: error
+  no-loop-func: error
+  newline-per-chained-call: error
+  no-useless-constructor: error
+  no-multi-assign: error
+  no-unused-expressions: error
+  no-nested-ternary: error
+  no-sequences: error
+  no-extend-native: error
+  no-useless-concat: error
+  arrow-body-style: error
+  comma-dangle: error
+  no-template-curly-in-string: error
+  no-mixed-operators: error
+  linebreak-style:
+    - error
+    - unix
+  no-param-reassign: 
+    - error
+    - props: false
+  no-use-before-define:
+    - error
+    - functions: false
+  no-console:
+    - error
+    - allow:
+      - "warn"
+      - "error"
+  indent:
+    - error
+    - 2
+    - SwitchCase: 1
