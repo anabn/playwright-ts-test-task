@@ -1,7 +1,7 @@
 import { test } from '@playwright/test';
 import { defaultData } from "../helpers/common-helper";
 import { NavigationPage } from '../pages/navigation-page';
-import { CPanelLicensesPage } from '../pages/licenses-page';
+import { LicensesPage } from '../pages/licenses-page';
 import { ConfigurePage } from '../pages/configure-page';
 import { OrderSummaryPage } from '../pages/order-summary-page';
 import { ReviewCheckoutPage } from '../pages/review-checkout-class';
@@ -11,7 +11,7 @@ import { ProductOrderInfo } from '../pages/product-order-info-page';
 test.describe('Example Test Suite', () => {
     let page: any; 
     let navigationPage: NavigationPage;
-    let cPanelLicensesPage: CPanelLicensesPage;
+    let licensesPage: LicensesPage;
     let configurePage: ConfigurePage;
     let orderSummaryPage: OrderSummaryPage;
     let reviewCheckoutPage: ReviewCheckoutPage;
@@ -20,7 +20,7 @@ test.describe('Example Test Suite', () => {
     test.beforeEach(async ({ browser }) => {
         page = await browser.newPage();
         navigationPage = new NavigationPage(page);
-        cPanelLicensesPage = new CPanelLicensesPage(page);
+        licensesPage = new LicensesPage(page);
         configurePage = new ConfigurePage(page);
         orderSummaryPage = new OrderSummaryPage(page);
         reviewCheckoutPage = new ReviewCheckoutPage(page);
@@ -39,7 +39,7 @@ test.describe('Example Test Suite', () => {
         const addonInfo: ProductOrderInfo = new ProductOrderInfo(addon, page)
         
         await navigationPage.titleShouldBe('panel');
-        await cPanelLicensesPage.orderProduct(product);
+        await licensesPage.orderProduct(product);
 
         await navigationPage.titleShouldBe('Configure');
         await orderSummaryPage.continueButtonIsDisable();
