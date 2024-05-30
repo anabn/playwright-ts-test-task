@@ -15,19 +15,26 @@ export class ProductOrderInfo extends BaseClass {
     }
 
     async productIsAdded() {     
-        expect(await this.getProductInfo(this.productType)).toBeVisible;
+        const productInfo = await this.getProductInfo(this.productType);
+        await expect(productInfo).toBeVisible();
     }
 
     async ipAddressIs(ip: string) {     
-        expect((await this.getProductInfo(this.productType)).locator("//following-sibling::td[2]")).toHaveText(ip);
+        const productInfo = await this.getProductInfo(this.productType);
+        const ipElement = productInfo.locator("//following-sibling::td[2]");
+        await expect(ipElement).toHaveText(ip);
     }
 
-    async recurringPriceIs(price: string) {     
-        expect((await this.getProductInfo(this.productType)).locator("//following-sibling::td[3]")).toHaveText(price);
+    async recurringPriceIs(price: string) {
+        const productInfo = await this.getProductInfo(this.productType);
+        const recurringPriceElement = productInfo.locator("//following-sibling::td[3]");
+        await expect(recurringPriceElement).toHaveText(price);
     }
 
     async monthlyPriceIs(price: string) {     
-        expect((await this.getProductInfo(this.productType)).locator("//following-sibling::td[4]")).toContainText(price);
+        const productInfo = await this.getProductInfo(this.productType);
+        const priceElement = productInfo.locator("//following-sibling::td[4]");
+        await expect(priceElement).toHaveText(price);
     }
 
 }

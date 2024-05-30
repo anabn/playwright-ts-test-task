@@ -7,7 +7,7 @@ interface TestData {
 }
 
 export const defaultData: TestData = {
-    url: 'https://store.cpanel.net/store/cpanel-licenses',
+    url: 'https://store.net/licenses',
     ip: '2.2.2.2'
 };
 

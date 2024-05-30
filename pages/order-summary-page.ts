@@ -15,13 +15,11 @@ export class OrderSummaryPage extends BaseClass {
     }
 
     async continueButtonIsDisable() {
-        await this.continueButton.isDisabled();
-        expect(this.continueButton).toBeDisabled();
+        await expect(this.continueButton).toBeDisabled();
     }
 
     async continueButtonIsEnabled() {
-        await this.continueButton.isEnabled();
-        expect(this.continueButton).toBeEnabled();
+        await expect(this.continueButton).toBeEnabled();
     }
 
     async clickOnCheckout() {
@@ -29,13 +27,11 @@ export class OrderSummaryPage extends BaseClass {
     }
 
     async checkoutButtonIsDisable() {
-        await this.checkoutButton.isDisabled();
-        expect(this.checkoutButton).toBeDisabled();
+        await expect(this.checkoutButton).toBeDisabled();
     }
 
     async checkoutButtonIsEnabled() {
-        await this.checkoutButton.isEnabled();
-        expect(this.checkoutButton).toBeEnabled();
+        await expect(this.checkoutButton).toBeEnabled();
     }
 
 }

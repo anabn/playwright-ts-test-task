@@ -1,7 +1,7 @@
 import { Page, test } from '@playwright/test';
 import { CommonHelper, defaultData } from "../helpers/common-helper";
 import { NavigationPage } from '../pages/navigation-page';
-import { CPanelLicensesPage } from '../pages/cPanel-licenses-page';
+import { CPanelLicensesPage } from '../pages/licenses-page';
 import { ConfigurePage } from '../pages/configure-page';
 import { OrderSummaryPage } from '../pages/order-summary-page';
 import { ReviewCheckoutPage } from '../pages/review-checkout-class';
@@ -26,16 +26,16 @@ test.beforeEach(async () => {
     checkoutOrderPage = new CheckoutOrderPage(page);
 });
 
-test("User is able to order product with addons using cPanel Store", async () => {
-    const product = 'cPanel Pro Cloud (30 Accounts)';
-    const addon = 'Monthly CloudLinux for cPanel License';
-    const productValue = '$12.48 USD';
-    const addonValue = '$4.65 USD';
-    const totalValue = '$17.13 USD';
+test("User is able to order product with addons using web panel", async () => {
+    const product = 'product';
+    const addon = 'addon';
+    const productValue = '$xx USD';
+    const addonValue = '$xx USD';
+    const totalValue = '$xx USD';
     const productInfo: ProductOrderInfo = new ProductOrderInfo(product, page);
     const addonInfo: ProductOrderInfo = new ProductOrderInfo(addon, page)
     
-    await navigationPage.titleShouldBe('cPanel Licenses');
+    await navigationPage.titleShouldBe('panel');
     await cPanelLicensesPage.orderProduct(product);
 
     await navigationPage.titleShouldBe('Configure');
@@ -69,8 +69,10 @@ test("User is able to order product with addons using cPanel Store", async () =>
 
     await checkoutOrderPage.totalDueTodaySumIs(totalValue);
 
-    ['Personal Information', 'Billing Address', 'Account Security', 'Terms & Conditions', 'Payment Details'].forEach((section: string) => {
-        checkoutOrderPage.sectionIsVisible(section);
-    });
+    for (const section of ['info', 'Terms & Conditions']) {
+        await checkoutOrderPage.sectionIsVisible(section);
+    }
+    
     await checkoutOrderPage.completeOrderButtonIsDisable();
+
 });

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test:debug": "npx playwright test tests/cPanel-store.test.ts --headed",
+    "test:debug": "npx playwright test tests/store.test.ts --headed",
     "test": "npx playwright test --workers=3",
     "lint": "eslint tests/*.ts",
     "lint:quiet": "eslint --quiet --ext .ts tests/"
